@@ -61,17 +61,9 @@ const Project = ()=>{
                             Want to collaborate?
                         </h3> */}
                         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                            I'm always excited to work on new projects and explore innovative technologies. 
-                            Let's create something amazing together!
+                            I'm always excited to work on new projects
                         </p>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-gradient-to-r from-lavender-600 to-pink-600 text-white px-8 py-3 
-                                       rounded-full font-semibold hover:shadow-lg transition-all duration-300"
-                        >
-                            Get In Touch
-                        </motion.button>
+                        
                     </div>
                 </motion.div>
             </div>

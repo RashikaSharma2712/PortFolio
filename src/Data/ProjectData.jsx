@@ -15,8 +15,7 @@ export const ProjectData = [
         name: "STUDY NOTION",
         description: "A comprehensive edtech platform with course management, student progress tracking, and interactive learning features.",
         technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-        link: "https://study-notion-edtech-platform.vercel.app/",
-        github: "https://github.com/RashikaSharma2712/StudyNotion",
+         github: "https://github.com/RashikaSharma2712/StudyNotion",
         images: [
             {
                 id: 1,
@@ -108,7 +107,7 @@ export const ProjectData = [
         name: "PLAN WITH RASHIKA(Frontend)",
         description: "PLAN WITH RASHIKA is a heartfelt planner to cherish shared moments, built with love using HTML, CSS, and JavaScript.",
         technologies: [ " Tailwind CSS" ,"React"],
-        link: 'plan-with-rashika-sknd.vercel.app',
+        
         github: "https://github.com/RashikaSharma2712/PLAN-WITH-RASHIKA",
         images: [
 
