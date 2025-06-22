@@ -61,7 +61,7 @@ const Project = ()=>{
                             Want to collaborate?
                         </h3> */}
                         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                            I'm always excited to work on new projects
+                            I'm always excited to work on new projects and learn ... 
                         </p>
                         
                     </div>

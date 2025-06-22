@@ -209,9 +209,6 @@ const Certificates = () => {
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
               Continuously Learning & Growing
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              I believe in continuous learning and professional development. 
-            </p>
             
           </div>
         </motion.div>
