@@ -53,23 +53,42 @@ const Navbar = () => {
         <span className={`block w-4 h-0.5 bg-lavender-600 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
       </button>
       {/* Mobile Nav Dropdown */}
-      <div className={`md:hidden fixed top-16 left-0 w-full bg-white shadow-lg border-t border-lavender-100 transition-all duration-300 z-40 ${menuOpen ? 'block' : 'hidden'}`}>
-        <ul className="flex flex-col items-center gap-4 py-4">
+      <div
+        className={`md:hidden fixed top-16 left-0 w-full px-2 transition-all duration-500 z-40 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
+        style={{
+          backdropFilter: 'blur(16px)',
+          background: 'rgba(255,255,255,0.7)',
+          borderRadius: '1rem',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          border: '1px solid rgba(200,200,255,0.18)'
+        }}
+      >
+        <ul className="flex flex-col items-center gap-4 py-6">
           {navLinks.map((link, idx) => (
-            <li key={idx}>
+            <li
+              key={idx}
+              style={{
+                transition: 'all 0.4s cubic-bezier(0.4,0,0.2,1)',
+                transitionDelay: `${menuOpen ? idx * 80 : 0}ms`,
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? 'translateY(0)' : 'translateY(-10px)'
+              }}
+              className="w-full"
+            >
               <RouterNavLink
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-lg font-medium px-4 py-2 rounded transition-colors duration-200 block w-full text-center ${
-                    isActive || location.pathname === link.path
-                      ? 'text-lavender-600 bg-lavender-50'
-                      : 'text-gray-700 hover:text-lavender-600 hover:bg-lavender-50'
-                  }`
+                  `text-lg font-semibold px-6 py-3 rounded-xl block w-full text-center transition-all duration-200 relative overflow-hidden
+                  ${isActive || location.pathname === link.path
+                    ? 'text-lavender-600 bg-lavender-50 shadow-md'
+                    : 'text-gray-700 hover:text-lavender-600 hover:bg-lavender-100'}
+                  `
                 }
                 end={link.path === '/'}
                 onClick={() => setMenuOpen(false)}
               >
-                {link.title}
+                <span className="relative z-10">{link.title}</span>
+                <span className="absolute left-1/2 bottom-2 w-0 h-0.5 bg-lavender-400 transition-all duration-300 group-hover:w-1/2 group-hover:h-1 group-focus:w-1/2" style={{transform: 'translateX(-50%)'}}></span>
               </RouterNavLink>
             </li>
           ))}
