@@ -54,45 +54,53 @@ const Navbar = () => {
       </button>
       {/* Mobile Nav Dropdown */}
       <div
-        className={`md:hidden fixed top-16 left-0 w-full px-2 transition-all duration-500 z-40 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
+        className={`md:hidden fixed top-16 left-0 w-full px-2 z-40 transition-all duration-500 ${menuOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'}`}
         style={{
-          backdropFilter: 'blur(16px)',
-          background: 'rgba(255,255,255,0.7)',
-          borderRadius: '1rem',
-          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-          border: '1px solid rgba(200,200,255,0.18)'
+          borderRadius: '1.5rem',
         }}
       >
-        <ul className="flex flex-col items-center gap-4 py-6">
-          {navLinks.map((link, idx) => (
-            <li
-              key={idx}
-              style={{
-                transition: 'all 0.4s cubic-bezier(0.4,0,0.2,1)',
-                transitionDelay: `${menuOpen ? idx * 80 : 0}ms`,
-                opacity: menuOpen ? 1 : 0,
-                transform: menuOpen ? 'translateY(0)' : 'translateY(-10px)'
-              }}
-              className="w-full"
-            >
-              <RouterNavLink
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-lg font-semibold px-6 py-3 rounded-xl block w-full text-center transition-all duration-200 relative overflow-hidden
-                  ${isActive || location.pathname === link.path
-                    ? 'text-lavender-600 bg-lavender-50 shadow-md'
-                    : 'text-gray-700 hover:text-lavender-600 hover:bg-lavender-100'}
-                  `
-                }
-                end={link.path === '/'}
-                onClick={() => setMenuOpen(false)}
-              >
-                <span className="relative z-10">{link.title}</span>
-                <span className="absolute left-1/2 bottom-2 w-0 h-0.5 bg-lavender-400 transition-all duration-300 group-hover:w-1/2 group-hover:h-1 group-focus:w-1/2" style={{transform: 'translateX(-50%)'}}></span>
-              </RouterNavLink>
-            </li>
-          ))}
-        </ul>
+        <div className="animated-gradient-border rounded-3xl p-1">
+          <div
+            style={{
+              backdropFilter: 'blur(16px)',
+              background: 'rgba(255,255,255,0.8)',
+              borderRadius: '1.25rem',
+              boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+              border: '1px solid rgba(200,200,255,0.18)'
+            }}
+          >
+            <ul className="flex flex-col items-center gap-4 py-6">
+              {navLinks.map((link, idx) => (
+                <li
+                  key={idx}
+                  style={{
+                    transition: 'all 0.4s cubic-bezier(0.4,0,0.2,1)',
+                    transitionDelay: `${menuOpen ? idx * 80 : 0}ms`,
+                    opacity: menuOpen ? 1 : 0,
+                    transform: menuOpen ? 'translateY(0)' : 'translateY(-10px)'
+                  }}
+                  className="w-full"
+                >
+                  <RouterNavLink
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `text-lg font-semibold px-6 py-3 rounded-xl block w-full text-center transition-all duration-200 relative overflow-hidden group
+                      ${isActive || location.pathname === link.path
+                        ? 'text-lavender-600 bg-lavender-50 shadow-md'
+                        : 'text-gray-700 hover:text-white hover:bg-lavender-500 neon-glow'}
+                      `
+                    }
+                    end={link.path === '/'}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <span className="relative z-10 mr-2">{link.emoji || '✨'}</span>
+                    <span className="relative z-10">{link.title}</span>
+                  </RouterNavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
   );
