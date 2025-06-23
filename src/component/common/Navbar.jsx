@@ -48,9 +48,9 @@ const Navbar = () => {
         onClick={() => setMenuOpen((prev) => !prev)}
         aria-label="Toggle navigation menu"
       >
-        <span className={`block w-6 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-        <span className={`block w-6 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
-        <span className={`block w-6 h-0.5 bg-lavender-600 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        <span className={`block w-4 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+        <span className={`block w-4 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+        <span className={`block w-4 h-0.5 bg-lavender-600 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
       </button>
       {/* Mobile Nav Dropdown */}
       <div className={`md:hidden fixed top-16 left-0 w-full bg-white shadow-lg border-t border-lavender-100 transition-all duration-300 z-40 ${menuOpen ? 'block' : 'hidden'}`}>
