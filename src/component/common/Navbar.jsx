@@ -17,16 +17,6 @@ const Navbar = () => {
           className="h-18 w-16 object-contain mr-2"
         />
       </div>
-      {/* Hamburger for mobile */}
-      <button
-        className="md:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none"
-        onClick={() => setMenuOpen((prev) => !prev)}
-        aria-label="Toggle navigation menu"
-      >
-        <span className={`block w-6 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-        <span className={`block w-6 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
-        <span className={`block w-6 h-0.5 bg-lavender-600 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-      </button>
       {/* Centered Nav Links */}
       <div className="flex-1 flex justify-center">
         <ul className="hidden md:flex gap-8">
@@ -50,6 +40,18 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+      {/* Empty right side for symmetry */}
+      <div className="w-10" />
+      {/* Hamburger for mobile - moved to right */}
+      <button
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none"
+        onClick={() => setMenuOpen((prev) => !prev)}
+        aria-label="Toggle navigation menu"
+      >
+        <span className={`block w-6 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+        <span className={`block w-6 h-0.5 bg-lavender-600 mb-1 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+        <span className={`block w-6 h-0.5 bg-lavender-600 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+      </button>
       {/* Mobile Nav Dropdown */}
       <div className={`md:hidden fixed top-16 left-0 w-full bg-white shadow-lg border-t border-lavender-100 transition-all duration-300 z-40 ${menuOpen ? 'block' : 'hidden'}`}>
         <ul className="flex flex-col items-center gap-4 py-4">
@@ -73,8 +75,6 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-      {/* Empty right side for symmetry */}
-      <div className="w-10" />
     </nav>
   );
 };
