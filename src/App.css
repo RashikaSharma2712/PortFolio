@@ -107,3 +107,22 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Animated gradient border for mobile dropdown */
+.animated-gradient-border {
+  background: linear-gradient(270deg, #a18cd1, #fbc2eb, #fad0c4, #a1c4fd, #c2e9fb, #a18cd1);
+  background-size: 1200% 1200%;
+  animation: gradientMove 8s ease infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Neon glow effect for nav links */
+.neon-glow:hover, .neon-glow:focus {
+  box-shadow: 0 0 8px 2px #b794f4, 0 0 16px 4px #a18cd1;
+  color: #fff !important;
+  background: #a18cd1 !important;
+}

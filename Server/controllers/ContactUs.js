@@ -1,5 +1,5 @@
 const Contact = require('../models/Contact');
-
+const mailSender = require('../Utils/mailSender');
 exports.contactUs = async (req,res) => {
 
     try{
@@ -20,9 +20,9 @@ exports.contactUs = async (req,res) => {
         
         // Try to send email if mailSender is available
         try{
-            const mailSender = require('../Utils/mailSender');
+            
             const adminEmail = process.env.MAIL_USER;
-            if(adminEmail && process.env.MAIL_HOST && process.env.MAIL_PASS){
+            
                 const adminSubject = "New Portfolio Form Submitted";
                 const adminMessage = `
                     <h2>New Contact Form Submission</h2>
@@ -36,7 +36,7 @@ exports.contactUs = async (req,res) => {
                   adminSubject,
                   adminMessage
                 );
-            }
+            
         }
         catch(emailError){
             console.error("Email sending failed:", emailError);
